@@ -6,21 +6,26 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
-
-_global_script_classes=[  ]
-_global_script_class_icons={
-
-}
+config_version=5
 
 [application]
 
-config/name="GGJ 2023.2"
-config/icon="res://icon.png"
+config/name="Basic_Controller"
+run/main_scene="res://Main_Scene.tscn"
+config/features=PackedStringArray("4.1", "Forward Plus")
+config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=240
+window/size/viewport_height=135
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
+
+[dotnet]
+
+project/assembly_name="Basic_Controller"
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
-vram_compression/import_etc=true
-vram_compression/import_etc2=false
-environment/default_environment="res://default_env.tres"
+textures/canvas_textures/default_texture_filter=0
