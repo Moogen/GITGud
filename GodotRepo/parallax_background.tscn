@@ -26,7 +26,7 @@ motion_scale = Vector2(0.2, 1)
 motion_mirroring = Vector2(240, 0)
 
 [node name="Parallax-forest-middle-trees" type="Sprite2D" parent="ParallaxLayer2"]
-position = Vector2(128, 72)
+position = Vector2(136, 72)
 texture = ExtResource("1_oi6cs")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
@@ -45,5 +45,5 @@ motion_offset = Vector2(0.095, 0)
 motion_mirroring = Vector2(240, 0)
 
 [node name="Parallax-forest-front-trees" type="Sprite2D" parent="ParallaxLayer3"]
-position = Vector2(137, 80)
+position = Vector2(136, 56)
 texture = ExtResource("3_0lx0d")
