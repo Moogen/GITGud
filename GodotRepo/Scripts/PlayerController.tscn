@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3fxdij8gxr2p"]
+[gd_scene load_steps=8 format=3 uid="uid://d3fxdij8gxr2p"]
 
 [ext_resource type="Script" path="res://BasicPlayer.gd" id="1_a6bti"]
-[ext_resource type="Texture2D" uid="uid://cssrvhx0tsxfn" path="res://sprites/player.png" id="2_1wkcw"]
+[ext_resource type="Texture2D" uid="uid://bg6k5q5higdsd" path="res://sprites/p1_run-Sheet.png" id="2_gnevv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52sto"]
 
@@ -16,10 +16,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.39695, 0.59695),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1, 3, 4]
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_a7foc"]
@@ -37,10 +37,26 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_vj8jq"]
+resource_name = "Running"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 7]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xpsab"]
 _data = {
 "Player_Idle": SubResource("Animation_uhstv"),
-"RESET": SubResource("Animation_a7foc")
+"RESET": SubResource("Animation_a7foc"),
+"Running": SubResource("Animation_vj8jq")
 }
 
 [node name="Player" type="CharacterBody2D"]
@@ -48,7 +64,7 @@ position = Vector2(599, 382)
 script = ExtResource("1_a6bti")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, 0.333336)
+position = Vector2(1, 18)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 50)
@@ -56,9 +72,8 @@ shape = SubResource("RectangleShape2D_52sto")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, 42)
-texture = ExtResource("2_1wkcw")
-hframes = 6
-vframes = 10
+texture = ExtResource("2_gnevv")
+hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 root_node = NodePath("../..")
