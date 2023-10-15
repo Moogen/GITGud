@@ -11,7 +11,8 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 # Hold a reference to the parent so that it can be controlled by the state
 var parent: Player
 
-func enter() -> void:
+
+func enter(prev_state: State) -> void:
 	parent.animations.play(animation_name)
 	pass 
 	

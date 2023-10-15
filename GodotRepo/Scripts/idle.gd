@@ -7,8 +7,8 @@ var jump_state: State
 @export
 var move_state: State
 
-func enter() -> void:
-	super()
+func enter(previous_state: State) -> void:
+	super(previous_state)
 	parent.velocity.x = 0
 
 func process_input(event: InputEvent) -> State:

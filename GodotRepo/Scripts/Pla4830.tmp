@@ -177,7 +177,6 @@ idle_state = NodePath("../idle")
 move_state = NodePath("../move")
 jump_state = NodePath("../jump")
 jump_buffer_time = 0.25
-gravity_constant = 1.5
 animation_name = "fall"
 
 [node name="jump" type="Node" parent="State Machine" node_paths=PackedStringArray("fall_state", "idle_state", "move_state")]
@@ -201,6 +200,7 @@ fall_state = NodePath("../fall")
 jump_state = NodePath("../jump")
 move_state = NodePath("../move")
 animation_name = "idle"
+move_speed = null
 
 [node name="state" type="Node" parent="State Machine"]
 script = ExtResource("5_0hdwq")

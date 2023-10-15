@@ -10,8 +10,8 @@ var move_state: State
 @export
 var jump_force: float = 900.0
 
-func enter() -> void:
-	super()
+func enter(previous_state: State) -> void:
+	super(previous_state)
 	parent.velocity.y = -jump_force
 
 func process_physics(delta: float) -> State:

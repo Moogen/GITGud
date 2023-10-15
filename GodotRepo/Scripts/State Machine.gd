@@ -1,9 +1,11 @@
-extends Node
+class_name StateMachine extends Node
 
 @export
 var starting_state: State
 @export
 var current_state: State
+@export
+var previous_state: State
 
 # Initialize the state machine by giving each child state a reference to the
 # parent object it belongs to and enter the default starting_state.
@@ -18,9 +20,10 @@ func init(parent: Player) -> void:
 func change_state(new_state: State) -> void:
 	if current_state:
 		current_state.exit()
-
+		
+	previous_state = current_state 
 	current_state = new_state
-	current_state.enter()
+	current_state.enter(previous_state)
 	
 # Pass through functions for the Player to call,
 # handling state changes as needed.
