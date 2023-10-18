@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpsd2qmbfagrl"
-path="res://.godot/imported/parallax-forest-lights.png-f6b0be6cfd05b8d69f649d0542a8e857.ctex"
+uid="uid://chwchdelcndy1"
+path="res://.godot/imported/icon.png-f9ba9008f31679cd240e2c5f33a9a4fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/parallax-forest-lights.png"
-dest_files=["res://.godot/imported/parallax-forest-lights.png-f6b0be6cfd05b8d69f649d0542a8e857.ctex"]
+source_file="res://Sprites/icon.png"
+dest_files=["res://.godot/imported/icon.png-f9ba9008f31679cd240e2c5f33a9a4fb.ctex"]
 
 [params]
 

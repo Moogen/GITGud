@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://7xvcsbe3ap11"]
+
+[ext_resource type="FontFile" uid="uid://db4gf67joda4q" path="res://Fonts/FFFHARMO.TTF" id="1_o0r6d"]
+
+[resource]
+default_font = ExtResource("1_o0r6d")
+Fonts/fonts/normal = ExtResource("1_o0r6d")

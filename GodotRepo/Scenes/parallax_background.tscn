@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://cw4qiiaoo7gks"]
 
-[ext_resource type="Script" path="res://parallax_background.gd" id="1_lfsol"]
-[ext_resource type="Texture2D" uid="uid://d13khlkje8sig" path="res://sprites/parallax-forest-middle-trees.png" id="1_oi6cs"]
-[ext_resource type="Texture2D" uid="uid://bs856iyurqvsy" path="res://sprites/parallax-forest-back-trees.png" id="2_7lxhe"]
-[ext_resource type="Texture2D" uid="uid://bpsd2qmbfagrl" path="res://sprites/parallax-forest-lights.png" id="2_8mvnd"]
-[ext_resource type="Texture2D" uid="uid://il3tb5ffa2tp" path="res://sprites/parallax-forest-front-trees.png" id="3_0lx0d"]
+[ext_resource type="Script" path="res://Scripts/parallax_background.gd" id="1_fpnpy"]
+[ext_resource type="Texture2D" uid="uid://bs856iyurqvsy" path="res://Sprites/parallax-forest-back-trees.png" id="2_nv46w"]
+[ext_resource type="Texture2D" uid="uid://d13khlkje8sig" path="res://Sprites/parallax-forest-middle-trees.png" id="3_7kk82"]
+[ext_resource type="Texture2D" uid="uid://bpsd2qmbfagrl" path="res://Sprites/parallax-forest-lights.png" id="4_dsq1t"]
+[ext_resource type="Texture2D" uid="uid://il3tb5ffa2tp" path="res://Sprites/parallax-forest-front-trees.png" id="5_5go3u"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
-script = ExtResource("1_lfsol")
+script = ExtResource("1_fpnpy")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 z_as_relative = false
@@ -17,7 +17,7 @@ motion_mirroring = Vector2(240, 0)
 
 [node name="Parallax-forest-back-trees" type="Sprite2D" parent="ParallaxLayer"]
 position = Vector2(136, 80)
-texture = ExtResource("2_7lxhe")
+texture = ExtResource("2_nv46w")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 z_index = 1
@@ -27,7 +27,7 @@ motion_mirroring = Vector2(240, 0)
 
 [node name="Parallax-forest-middle-trees" type="Sprite2D" parent="ParallaxLayer2"]
 position = Vector2(136, 72)
-texture = ExtResource("1_oi6cs")
+texture = ExtResource("3_7kk82")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
 z_index = 2
@@ -36,7 +36,7 @@ motion_mirroring = Vector2(240, 0)
 
 [node name="Parallax-forest-lights" type="Sprite2D" parent="ParallaxLayer4"]
 position = Vector2(136, 80)
-texture = ExtResource("2_8mvnd")
+texture = ExtResource("4_dsq1t")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
 z_index = 2
@@ -46,4 +46,4 @@ motion_mirroring = Vector2(240, 0)
 
 [node name="Parallax-forest-front-trees" type="Sprite2D" parent="ParallaxLayer3"]
 position = Vector2(136, 56)
-texture = ExtResource("3_0lx0d")
+texture = ExtResource("5_5go3u")

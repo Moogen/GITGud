@@ -7,6 +7,11 @@ var idle_state: State
 @export
 var jump_state: State
 
+
+
+func enter(previous_state: State) -> void:
+	super(previous_state)
+
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed('ui_accept') and parent.is_on_floor():
 		return jump_state
