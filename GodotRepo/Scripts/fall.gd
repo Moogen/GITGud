@@ -12,10 +12,10 @@ var jump_buffer_time : float = 0.5 #amount of time to hold jumps before hitting 
 @export
 var coyote_time : float = 0.2
 @export
-var gravity_time : float = 0.2
+var gravity_time : float = 0.1
 
 @export
-var gravity_constant : float = 0.2
+var gravity_constant : float = 0.5
 
 var gravity_timer : float = 0
 var coyote_timer : float = 0

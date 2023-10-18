@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://iuvnvfilq35o"]
+
+[ext_resource type="Theme" uid="uid://7xvcsbe3ap11" path="res://Theme/Default_Theme.tres" id="1_db2cy"]
+[ext_resource type="Script" path="res://Scenes/Console.gd" id="2_pvhws"]
+
+[node name="GUI" type="MarginContainer"]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 240.0
+offset_bottom = 134.0
+
+[node name="Console" type="RichTextLabel" parent="."]
+layout_mode = 2
+theme = ExtResource("1_db2cy")
+theme_override_font_sizes/normal_font_size = 8
+text = "Player Movement"
+script = ExtResource("2_pvhws")
