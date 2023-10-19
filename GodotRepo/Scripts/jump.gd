@@ -10,12 +10,18 @@ var move_state: State
 @export
 var jump_force: float = 900.0
 
+
+
 func enter(previous_state: State) -> void:
+	
 	super(previous_state)
 	parent.velocity.y = -jump_force
+	get_tree().call_group("Debug Group", "update_velocity", parent.velocity)
 
 func process_physics(delta: float) -> State:
+	
 	parent.velocity.y += gravity * delta
+
 	
 	if parent.velocity.y > 0:
 		return fall_state
@@ -25,6 +31,8 @@ func process_physics(delta: float) -> State:
 	if movement != 0:
 		parent.animations.flip_h = movement > 0
 	parent.velocity.x = movement
+	
+	get_tree().call_group("Debug Group", "update_velocity", parent.velocity)
 	parent.move_and_slide()
 	
 	if parent.is_on_floor():

@@ -179,11 +179,12 @@ idle_state = NodePath("../idle")
 move_state = NodePath("../move")
 jump_state = NodePath("../jump")
 jump_buffer_time = 0.25
+coyote_time = 0.1
 gravity_constant = 1.5
 animation_name = "fall"
 move_speed = 150.0
 
-[node name="jump" type="Node" parent="State Machine" node_paths=PackedStringArray("fall_state", "idle_state", "move_state")]
+[node name="jump" type="Node" parent="State Machine" node_paths=PackedStringArray("fall_state", "idle_state", "move_state") groups=["Debug Group"]]
 script = ExtResource("4_5f5su")
 fall_state = NodePath("../fall")
 idle_state = NodePath("../idle")
@@ -192,7 +193,7 @@ jump_force = 425.0
 animation_name = "jump"
 move_speed = 100.0
 
-[node name="move" type="Node" parent="State Machine" node_paths=PackedStringArray("fall_state", "idle_state", "jump_state")]
+[node name="move" type="Node" parent="State Machine" node_paths=PackedStringArray("fall_state", "idle_state", "jump_state") groups=["Debug Group"]]
 script = ExtResource("5_3oo7e")
 fall_state = NodePath("../fall")
 idle_state = NodePath("../idle")
@@ -200,12 +201,12 @@ jump_state = NodePath("../jump")
 animation_name = "move"
 move_speed = 300.0
 
-[node name="idle" type="Node" parent="State Machine" node_paths=PackedStringArray("fall_state", "jump_state", "move_state")]
+[node name="idle" type="Node" parent="State Machine" node_paths=PackedStringArray("fall_state", "jump_state", "move_state") groups=["Debug Group"]]
 script = ExtResource("4_p82wp")
 fall_state = NodePath("../fall")
 jump_state = NodePath("../jump")
 move_state = NodePath("../move")
 animation_name = "idle"
 
-[node name="state" type="Node" parent="State Machine"]
+[node name="state" type="Node" parent="State Machine" groups=["Debug Group"]]
 script = ExtResource("5_0hdwq")

@@ -7,9 +7,11 @@ var jump_state: State
 @export
 var move_state: State
 
+	
 func enter(previous_state: State) -> void:
 	super(previous_state)
 	parent.velocity.x = 0
+	get_tree().call_group("Debug Group", "update_velocity", parent.velocity)
 
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed('ui_accept') and parent.is_on_floor():

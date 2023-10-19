@@ -7,6 +7,8 @@ var current_state: State
 @export
 var previous_state: State
 
+var timestop = false
+
 # Initialize the state machine by giving each child state a reference to the
 # parent object it belongs to and enter the default starting_state.
 func init(parent: Player) -> void:
@@ -34,6 +36,15 @@ func process_physics(delta: float) -> void:
 
 func process_input(event: InputEvent) -> void:
 	var new_state = current_state.process_input(event)
+
+	if Input.is_action_just_pressed('timestop'): #time slows when pressing F4 as a debug feature
+		timestop = !timestop
+		if(timestop):
+			Engine.set_time_scale(0.1)
+		else:
+			Engine.set_time_scale(1)
+	pass
+	
 	if new_state:
 		change_state(new_state)
 

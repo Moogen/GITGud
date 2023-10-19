@@ -25,15 +25,22 @@ var previous_state : State
 
 func enter(previous_state: State) -> void:
 	super(previous_state)
+	
 	parent.animations.play(animation_name)
-	coyote_timer = coyote_time
+	
+	if(previous_state != jump_state):
+		coyote_timer = coyote_time
+		get_tree().call_group("Debug Group", "update_coyote_time", true)
+	else:
+		coyote_timer = 0
+		
 	gravity_timer = gravity_time
 	self.previous_state = previous_state
 	pass 
 	
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed('ui_accept'):
-		if coyote_timer > 0 and previous_state != jump_state: 
+		if coyote_timer > 0: 
 			print("Coyote time activated")
 			return jump_state
 		else:
@@ -49,9 +56,15 @@ func process_physics(delta: float) -> State:
 	
 	if(gravity_timer > 0):
 		parent.velocity.y += gravity * delta
+		get_tree().call_group("Debug Group", "update_gravity", gravity)
 	else:
 		parent.velocity.y += gravity * gravity_constant * delta
+		get_tree().call_group("Debug Group", "update_gravity", gravity * gravity_constant)
+		
+	if(coyote_timer < 0):
+		get_tree().call_group("Debug Group", "update_coyote_time", false)
 	
+		
 	var movement = Input.get_axis('ui_left', 'ui_right') * move_speed
 	
 	if movement != 0:
@@ -59,8 +72,12 @@ func process_physics(delta: float) -> State:
 		
 	parent.velocity.x = movement
 	parent.move_and_slide()
+	get_tree().call_group("Debug Group", "update_velocity", parent.velocity)
 	
 	if parent.is_on_floor():
+		get_tree().call_group("Debug Group", "update_coyote_time", false)
+		get_tree().call_group("Debug Group", "update_jump_buffer", false)
+		get_tree().call_group("Debug Group", "update_gravity", gravity)
 		if jump_buffer_timer > 0:
 			return jump_state
 		if movement != 0:
