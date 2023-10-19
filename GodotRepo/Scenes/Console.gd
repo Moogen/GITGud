@@ -1,7 +1,7 @@
 class_name Console extends Node
 
 @onready var debug_toggle = true
-@onready var ui_container = $"." #call self
+@export  var ui_container : MarginContainer
 
 @onready var debug_text
 @onready var player_velocity_x = 0
@@ -13,7 +13,7 @@ var player_gravity: int = ProjectSettings.get_setting("physics/2d/default_gravit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.visible = debug_toggle
+	ui_container.visible = debug_toggle
 	add_to_group("Debug Group")
 	pass # Replace with function body.
 
@@ -42,5 +42,5 @@ func _input(_event):
 	
 	if Input.is_action_just_pressed('Debug Key'):
 		debug_toggle = !debug_toggle
-		self.visible = debug_toggle
+		ui_container.visible = debug_toggle
 	pass

@@ -4,20 +4,23 @@
 [ext_resource type="Script" path="res://Scenes/Console.gd" id="2_pvhws"]
 
 [node name="GUI" type="MarginContainer"]
-
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.007
 offset_right = -151.0
 offset_bottom = -81.945
 theme = ExtResource("1_db2cy")
-[node name="ColorRect" type="ColorRect" parent="."]
+
+[node name="Debug Console" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Debug Console"]
 layout_mode = 2
 color = Color(0, 0, 0, 0.32549)
 
-
-[node name="Console" type="RichTextLabel" parent="."]
+[node name="Console" type="RichTextLabel" parent="Debug Console" node_paths=PackedStringArray("ui_container")]
 layout_mode = 2
 theme = ExtResource("1_db2cy")
 text = "Test"
 script = ExtResource("2_pvhws")
+ui_container = NodePath("..")
