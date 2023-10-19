@@ -8,6 +8,7 @@ var idle_state: State
 var jump_state: State
 
 
+
 func enter(previous_state: State) -> void:
 	super(previous_state)
 
