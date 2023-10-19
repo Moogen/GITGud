@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dx86aggwohfna"]
+[gd_scene load_steps=8 format=3 uid="uid://dx86aggwohfna"]
 
 [ext_resource type="PackedScene" uid="uid://cw4qiiaoo7gks" path="res://Scenes/parallax_background.tscn" id="1_japse"]
 [ext_resource type="Texture2D" uid="uid://di8j2j2iwxw7r" path="res://Sprites/Portal_Tiles.png" id="2_8t5eh"]
 [ext_resource type="PackedScene" uid="uid://d3fxdij8gxr2p" path="res://Scenes/PlayerController.tscn" id="3_uorjl"]
 [ext_resource type="PackedScene" uid="uid://iuvnvfilq35o" path="res://Scenes/gui.tscn" id="4_6nwub"]
+[ext_resource type="Theme" uid="uid://7xvcsbe3ap11" path="res://Theme/Default_Theme.tres" id="5_2ieyx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ly3ew"]
 texture = ExtResource("2_8t5eh")
@@ -65,6 +66,8 @@ offset_left = -347.0
 offset_top = -379.0
 offset_right = -161.0
 offset_bottom = -356.0
+theme = ExtResource("5_2ieyx")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "You made it!"
 fit_content = true
 autowrap_mode = 2
@@ -74,6 +77,8 @@ offset_left = -245.0
 offset_top = 26.0
 offset_right = -133.0
 offset_bottom = 118.0
+theme = ExtResource("5_2ieyx")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "6 tiles wide"
 fit_content = true
 autowrap_mode = 2
@@ -83,6 +88,8 @@ offset_left = -798.0
 offset_top = 21.0
 offset_right = -686.0
 offset_bottom = 113.0
+theme = ExtResource("5_2ieyx")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "8 tiles wide
 "
 fit_content = true
@@ -93,6 +100,8 @@ offset_left = -518.0
 offset_top = 25.0
 offset_right = -406.0
 offset_bottom = 117.0
+theme = ExtResource("5_2ieyx")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "7 tiles wide"
 fit_content = true
 autowrap_mode = 2
@@ -102,15 +111,20 @@ offset_left = 154.0
 offset_top = 43.0
 offset_right = 313.0
 offset_bottom = 89.0
+theme = ExtResource("5_2ieyx")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "5 tiles high"
 fit_content = true
 autowrap_mode = 2
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="Background text"]
-offset_left = 31.0
-offset_top = -72.0
-offset_right = 190.0
-offset_bottom = -26.0
-text = "6 tiles high"
+offset_left = -78.0
+offset_top = 70.0
+offset_right = 81.0
+offset_bottom = 116.0
+theme = ExtResource("5_2ieyx")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Press F4 to toggle slomo
+Press F3 to toggle debug"
 fit_content = true
 autowrap_mode = 2

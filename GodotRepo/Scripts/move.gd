@@ -8,7 +8,6 @@ var idle_state: State
 var jump_state: State
 
 
-
 func enter(previous_state: State) -> void:
 	super(previous_state)
 
@@ -27,6 +26,7 @@ func process_physics(delta: float) -> State:
 	
 	parent.animations.flip_h = movement > 0
 	parent.velocity.x = movement
+	get_tree().call_group("Debug Group", "update_velocity", parent.velocity)
 	parent.move_and_slide()
 	
 	if !parent.is_on_floor():

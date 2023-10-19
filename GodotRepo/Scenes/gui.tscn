@@ -4,14 +4,19 @@
 [ext_resource type="Script" path="res://Scenes/Console.gd" id="2_pvhws"]
 
 [node name="GUI" type="MarginContainer"]
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 240.0
-offset_bottom = 134.0
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.007
+offset_right = -151.0
+offset_bottom = -81.945
+theme = ExtResource("1_db2cy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0, 0, 0, 0.32549)
 
 [node name="Console" type="RichTextLabel" parent="."]
 layout_mode = 2
 theme = ExtResource("1_db2cy")
-theme_override_font_sizes/normal_font_size = 8
-text = "Player Movement"
+text = "Test"
 script = ExtResource("2_pvhws")
