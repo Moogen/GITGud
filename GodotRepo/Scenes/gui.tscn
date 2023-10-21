@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://iuvnvfilq35o"]
 
 [ext_resource type="Theme" uid="uid://7xvcsbe3ap11" path="res://Theme/Default_Theme.tres" id="1_db2cy"]
-[ext_resource type="Script" path="res://Scenes/Console.gd" id="2_pvhws"]
+[ext_resource type="Script" path="res://Scripts/Console.gd" id="2_s3de6"]
 
 [node name="GUI" type="MarginContainer"]
 anchors_preset = -1
@@ -22,5 +22,5 @@ color = Color(0, 0, 0, 0.32549)
 layout_mode = 2
 theme = ExtResource("1_db2cy")
 text = "Test"
-script = ExtResource("2_pvhws")
+script = ExtResource("2_s3de6")
 ui_container = NodePath("..")
