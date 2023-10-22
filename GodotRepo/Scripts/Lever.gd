@@ -1,7 +1,6 @@
 extends "res://Scripts/Interactable.gd"
 #Inherits from the interactable class
 
-
 enum State {
 	Off,
 	On
@@ -13,9 +12,11 @@ var current_state = State.Off
 func _on_player_interaction() -> void:
 	if(current_state == State.Off):
 		current_state = State.On
+		_activate_outputs()
 	else:
 		current_state = State.Off
-
+		_deactivate_outputs()
+		
 	update_anim()
 	pass
 	

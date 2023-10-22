@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dx86aggwohfna"]
+[gd_scene load_steps=10 format=3 uid="uid://dx86aggwohfna"]
 
 [ext_resource type="PackedScene" uid="uid://cw4qiiaoo7gks" path="res://Scenes/parallax_background.tscn" id="1_japse"]
 [ext_resource type="Texture2D" uid="uid://di8j2j2iwxw7r" path="res://Sprites/Portal_Tiles.png" id="2_8t5eh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://iuvnvfilq35o" path="res://Scenes/gui.tscn" id="4_6nwub"]
 [ext_resource type="Theme" uid="uid://7xvcsbe3ap11" path="res://Theme/Default_Theme.tres" id="5_2ieyx"]
 [ext_resource type="PackedScene" uid="uid://bwyid7w1ptqjb" path="res://Scenes/lever.tscn" id="6_tavke"]
+[ext_resource type="PackedScene" uid="uid://clqjy1emhqjpt" path="res://Scenes/light.tscn" id="7_d365r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ly3ew"]
 texture = ExtResource("2_8t5eh")
@@ -130,12 +131,16 @@ Press F3 to toggle debug"
 fit_content = true
 autowrap_mode = 2
 
-[node name="Lever" parent="." instance=ExtResource("6_tavke")]
+[node name="Lever" parent="." node_paths=PackedStringArray("logic_outputs") instance=ExtResource("6_tavke")]
 position = Vector2(72, 136)
 scale = Vector2(1.00068, 0.996113)
+logic_outputs = [NodePath("../Light")]
 
 [node name="Lever2" parent="." instance=ExtResource("6_tavke")]
-position = Vector2(472, 8)
+position = Vector2(473, 10)
 
 [node name="Lever3" parent="." instance=ExtResource("6_tavke")]
 position = Vector2(504, 8)
+
+[node name="Light" parent="." instance=ExtResource("7_d365r")]
+position = Vector2(152, 128)
