@@ -10,6 +10,7 @@ var is_interactable = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	print(animation_name)
 	animations.play(animation_name)
 	collision_area.connect("body_entered", self._on_body_entered)
