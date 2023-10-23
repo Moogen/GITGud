@@ -11,7 +11,6 @@ var current_state = State.Off
 
 func _activate():
 	current_state = State.On
-	print("light on")
 	update_anim()
 	pass
 	

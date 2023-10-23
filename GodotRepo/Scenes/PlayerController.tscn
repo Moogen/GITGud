@@ -9,7 +9,8 @@
 [ext_resource type="Script" path="res://Scripts/move.gd" id="5_3oo7e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ulmm2"]
-height = 32.0
+radius = 7.0
+height = 28.0
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(599, 382)
@@ -24,7 +25,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 41)
+position = Vector2(0, 43)
 shape = SubResource("CapsuleShape2D_ulmm2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -10,6 +10,7 @@ var current_state = State.Off
 @export var activated_animation : String = "On"
 
 func _on_player_interaction() -> void:
+	
 	if(current_state == State.Off):
 		current_state = State.On
 		_activate_outputs()
