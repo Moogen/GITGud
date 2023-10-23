@@ -1,4 +1,4 @@
-extends State
+extends "res://Scripts/State.gd"
 
 @export
 var fall_state: State
