@@ -133,7 +133,7 @@ fit_content = true
 autowrap_mode = 2
 
 [node name="Lever4" parent="." node_paths=PackedStringArray("logic_outputs") instance=ExtResource("6_tavke")]
-position = Vector2(283, 135)
+position = Vector2(280, 136)
 logic_outputs = [NodePath("../Door")]
 
 [node name="Lever" parent="." node_paths=PackedStringArray("logic_outputs") instance=ExtResource("6_tavke")]
@@ -148,7 +148,7 @@ position = Vector2(473, 10)
 position = Vector2(504, 8)
 
 [node name="Door" parent="." instance=ExtResource("7_gd657")]
-position = Vector2(348, 129)
+position = Vector2(347, 128)
 
 [node name="Light" parent="." instance=ExtResource("7_d365r")]
 position = Vector2(152, 128)
@@ -157,5 +157,5 @@ position = Vector2(152, 128)
 position = Vector2(422, 64)
 
 [node name="Lever5" parent="." node_paths=PackedStringArray("logic_outputs") instance=ExtResource("6_tavke")]
-position = Vector2(397, 136)
+position = Vector2(408, 136)
 logic_outputs = [NodePath("../Light2")]
