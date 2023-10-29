@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dptl7rt8a65hx"]
+
+[ext_resource type="Script" path="res://Scripts/GravityWell.gd" id="1_k6cux"]
+[ext_resource type="Texture2D" uid="uid://raej4vyjje2t" path="res://sprites/dark_hole.png" id="2_hmhry"]
+
+[node name="GravityWell" type="Node2D"]
+script = ExtResource("1_k6cux")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.13687e-13, 21)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("2_hmhry")

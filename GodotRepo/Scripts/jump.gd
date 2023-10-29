@@ -18,10 +18,18 @@ func enter(previous_state: State) -> void:
 	parent.velocity.y = -jump_force
 	get_tree().call_group("Debug Group", "update_velocity", parent.velocity)
 
-func process_physics(delta: float) -> State:
+func process_physics(delta: float, gravity_influence: Vector2) -> State:
+	#gravity needs to fall off over time
+	if gravity_influence.x == 0:
+		parent.velocity.x *= .9
+	else:
+		parent.velocity.x += gravity_influence.x
 	
-	parent.velocity.y += gravity * delta
-
+	var grav_to_use = gravity
+	
+	if gravity_influence.y != 0:
+		grav_to_use = gravity_influence.y
+	parent.velocity.y += grav_to_use * delta
 	
 	if parent.velocity.y > 0:
 		return fall_state

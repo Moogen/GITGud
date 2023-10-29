@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://dx86aggwohfna"]
+[gd_scene load_steps=12 format=3 uid="uid://dx86aggwohfna"]
 
 [ext_resource type="PackedScene" uid="uid://cw4qiiaoo7gks" path="res://Scenes/parallax_background.tscn" id="1_japse"]
-[ext_resource type="Texture2D" uid="uid://di8j2j2iwxw7r" path="res://Sprites/Portal_Tiles.png" id="2_8t5eh"]
+[ext_resource type="Texture2D" uid="uid://di8j2j2iwxw7r" path="res://sprites/Portal_Tiles.png" id="2_8t5eh"]
 [ext_resource type="PackedScene" uid="uid://d3fxdij8gxr2p" path="res://Scenes/PlayerController.tscn" id="3_uorjl"]
 [ext_resource type="PackedScene" uid="uid://iuvnvfilq35o" path="res://Scenes/gui.tscn" id="4_6nwub"]
 [ext_resource type="Theme" uid="uid://7xvcsbe3ap11" path="res://Theme/Default_Theme.tres" id="5_2ieyx"]
 [ext_resource type="PackedScene" uid="uid://bwyid7w1ptqjb" path="res://Scenes/lever.tscn" id="6_tavke"]
 [ext_resource type="PackedScene" uid="uid://clqjy1emhqjpt" path="res://Scenes/light.tscn" id="7_d365r"]
 [ext_resource type="PackedScene" uid="uid://bk125ytsyqjkk" path="res://Scenes/door.tscn" id="7_gd657"]
+[ext_resource type="Script" path="res://Scripts/click_create.gd" id="9_h3jjg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ly3ew"]
 texture = ExtResource("2_8t5eh")
@@ -159,3 +160,6 @@ position = Vector2(422, 64)
 [node name="Lever5" parent="." node_paths=PackedStringArray("logic_outputs") instance=ExtResource("6_tavke")]
 position = Vector2(397, 136)
 logic_outputs = [NodePath("../Light2")]
+
+[node name="GravityWells" type="Node2D" parent="."]
+script = ExtResource("9_h3jjg")
