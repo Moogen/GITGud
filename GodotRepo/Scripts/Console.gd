@@ -8,6 +8,7 @@ class_name Console extends Node
 @onready var player_velocity_y = 0
 @onready var coyote_time = false
 @onready var jump_buffer = false #currently unused debug variable
+@onready var gravity_influence = Vector2(0,0) #currently unused debug variable
 
 var player_gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -21,7 +22,7 @@ func _process(delta):
 	#update the text of the object
 	var coyote_time_text = ("Coyote time" if coyote_time else "")
 	var jumb_buffer_text = ("Jump buffer" if jump_buffer else "")
-	self.text = "Velocity X: %0.2f\nVelocity Y: %0.2f\nGravity: %0.0f\n%s \n%s" % [player_velocity_x, player_velocity_y, player_gravity, coyote_time_text, jumb_buffer_text] 
+	self.text = "Velocity X: %0.2f\nVelocity Y: %0.2f\nGravity: X:%0.0f Y:%0.0f \n%s \n%s" % [player_velocity_x, player_velocity_y, gravity_influence.x, gravity_influence.y, coyote_time_text, jumb_buffer_text] 
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
@@ -37,6 +38,11 @@ func update_coyote_time(_coyote_time):
 func update_gravity(_gravity):
 	player_gravity = _gravity
 	pass
+	
+func update_gravity_influence(_gravity_influence):
+	gravity_influence = _gravity_influence
+	pass
+	
 	
 func _input(_event):
 	
