@@ -9,6 +9,8 @@ var previous_state: State
 
 var timestop = false
 
+var gravity_influence = Vector2(0,0)
+
 # Initialize the state machine by giving each child state a reference to the
 # parent object it belongs to and enter the default starting_state.
 func init(parent: Player) -> void:
@@ -30,7 +32,7 @@ func change_state(new_state: State) -> void:
 # Pass through functions for the Player to call,
 # handling state changes as needed.
 func process_physics(delta: float) -> void:
-	var new_state = current_state.process_physics(delta)
+	var new_state = current_state.process_physics(delta, gravity_influence)
 	if new_state:
 		change_state(new_state)
 
@@ -52,3 +54,7 @@ func process_frame(delta: float) -> void:
 	var new_state = current_state.process_frame(delta)
 	if new_state:
 		change_state(new_state)
+
+func set_gravity(influence: Vector2) -> void:
+	gravity_influence = influence
+	pass
