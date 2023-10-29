@@ -57,4 +57,5 @@ func process_frame(delta: float) -> void:
 
 func set_gravity(influence: Vector2) -> void:
 	gravity_influence = influence
+	get_tree().call_group("Debug Group", "update_gravity_influence", gravity_influence)
 	pass
