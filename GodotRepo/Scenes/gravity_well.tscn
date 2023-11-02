@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scenes/Area2D.gd" id="3_uyknd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nobju"]
-radius = 83.74
+radius = 150.0
 
 [node name="GravityWell" type="Node2D"]
 script = ExtResource("1_k6cux")
@@ -21,8 +21,9 @@ gravity_space_override = 2
 gravity_point = true
 gravity_point_center = Vector2(0, 0)
 gravity_direction = Vector2(0, 0)
-gravity = 636000.0
-linear_damp = 10.0
+gravity = 9.6e+08
+linear_damp = 1.0
+angular_damp = 1.5
 script = ExtResource("3_uyknd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Blackhole"]

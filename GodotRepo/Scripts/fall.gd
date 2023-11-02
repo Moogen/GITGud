@@ -61,6 +61,7 @@ func process_physics(delta: float, gravity_influence: Vector2) -> State:
 	
 	var grav_to_use = gravity
 	
+	
 	if gravity_influence.y != 0:
 		grav_to_use = gravity_influence.y
 	

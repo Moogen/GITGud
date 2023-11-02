@@ -147,7 +147,7 @@ scale = Vector2(1.00068, 0.996113)
 logic_outputs = [NodePath("../Light")]
 
 [node name="Lever2" parent="." instance=ExtResource("6_tavke")]
-position = Vector2(473, 10)
+position = Vector2(472, 8)
 
 [node name="Lever3" parent="." instance=ExtResource("6_tavke")]
 position = Vector2(504, 8)
