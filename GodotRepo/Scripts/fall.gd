@@ -61,16 +61,15 @@ func process_physics(delta: float, gravity_influence: Vector2) -> State:
 	
 	var grav_to_use = gravity
 	
-	
 	if gravity_influence.y != 0:
 		grav_to_use = gravity_influence.y
 	
 	if(gravity_timer > 0):
-		parent.velocity.y += gravity * delta
-		get_tree().call_group("Debug Group", "update_gravity", gravity)
+		parent.velocity.y += grav_to_use * delta
+		get_tree().call_group("Debug Group", "update_gravity", grav_to_use)
 	else:
-		parent.velocity.y += gravity * gravity_constant * delta
-		get_tree().call_group("Debug Group", "update_gravity", gravity * gravity_constant)
+		parent.velocity.y += grav_to_use * gravity_constant * delta
+		get_tree().call_group("Debug Group", "update_gravity", grav_to_use * gravity_constant)
 		
 	if(coyote_timer < 0):
 		get_tree().call_group("Debug Group", "update_coyote_time", false)
