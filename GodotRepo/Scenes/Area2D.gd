@@ -6,6 +6,7 @@ var gravity_strength = 10.0
 func _ready():
 	# Setting up the gravity here is optional, depending on your requirements
 	gravity = gravity_strength
+
 	gravity_point = true
 
 func _on_Blackhole_body_entered(body):

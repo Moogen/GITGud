@@ -20,6 +20,7 @@ position = Vector2(473, 759)
 scale = Vector2(2, 2)
 texture = ExtResource("2_tlufo")
 
+
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 visible = false
 z_index = 1

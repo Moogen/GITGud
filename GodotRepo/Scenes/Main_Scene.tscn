@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=13 format=3 uid="uid://dx86aggwohfna"]
+
 
 [ext_resource type="PackedScene" uid="uid://cw4qiiaoo7gks" path="res://Scenes/parallax_background.tscn" id="1_japse"]
 [ext_resource type="Texture2D" uid="uid://di8j2j2iwxw7r" path="res://Sprites/Portal_Tiles.png" id="2_8t5eh"]
@@ -10,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bk125ytsyqjkk" path="res://Scenes/door.tscn" id="7_gd657"]
 [ext_resource type="Script" path="res://Scripts/click_create.gd" id="9_h3jjg"]
 [ext_resource type="PackedScene" uid="uid://cghv5qiclr43p" path="res://Scenes/crate.tscn" id="10_ls8h6"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ly3ew"]
 texture = ExtResource("2_8t5eh")
@@ -63,6 +66,9 @@ position = Vector2(121, 67)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource("4_6nwub")]
+
+[node name="GravityBar" parent="CanvasLayer" instance=ExtResource("11_bqpom")]
+position = Vector2(0, 57)
 
 [node name="Background text" type="Node" parent="."]
 
