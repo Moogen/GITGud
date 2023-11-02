@@ -19,11 +19,13 @@ script = ExtResource("1_jtj3m")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1, 18)
-offset = Vector2(0, 5)
+offset = Vector2(0, 20)
 limit_top = -1000
 limit_bottom = 200
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 43)
@@ -47,7 +49,7 @@ move_state = NodePath("../move")
 jump_state = NodePath("../jump")
 jump_buffer_time = 0.1
 coyote_time = 0.15
-gravity_constant = 1.5
+gravity_constant = 1.0
 animation_name = "fall"
 move_speed = 150.0
 
