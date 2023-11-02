@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://raej4vyjje2t"
-path="res://.godot/imported/dark_hole.png-222d603650f0f8048e62d3515617cf94.ctex"
+uid="uid://h5x3amanm0fp"
+path="res://.godot/imported/GravityBar.png-594fa5aa79da2b23d7f5402495b70cd8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/dark_hole.png"
-dest_files=["res://.godot/imported/dark_hole.png-222d603650f0f8048e62d3515617cf94.ctex"]
+source_file="res://sprites/GravityBar.png"
+dest_files=["res://.godot/imported/GravityBar.png-594fa5aa79da2b23d7f5402495b70cd8.ctex"]
 
 [params]
 

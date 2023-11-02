@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://431ff7onnhpi"]
+
+[ext_resource type="Script" path="res://Scenes/GravityBar.gd" id="1_7pj4k"]
+[ext_resource type="Texture2D" uid="uid://h5x3amanm0fp" path="res://sprites/GravityBar.png" id="2_a3off"]
+[ext_resource type="SpriteFrames" uid="uid://dsjx5ysii1cyg" path="res://sprites/Animations/Gravity_bar.tres" id="3_hq8xi"]
+
+[node name="GravityBar" type="Node2D"]
+script = ExtResource("1_7pj4k")
+
+[node name="Frame" type="Sprite2D" parent="."]
+position = Vector2(16, 64)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_a3off")
+
+[node name="Bar" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, 64)
+scale = Vector2(0.1, 0.1)
+sprite_frames = ExtResource("3_hq8xi")
+animation = &"0"
+offset = Vector2(3, 5)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -1.0
+offset_top = 123.0
+offset_right = 144.0
+offset_bottom = 171.0
+theme_override_font_sizes/normal_font_size = 0
+text = "Mass
+Press \"m\" to add"
