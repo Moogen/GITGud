@@ -13,37 +13,41 @@ script = ExtResource("1_fpnpy")
 z_as_relative = false
 motion_scale = Vector2(0.1, 0.01)
 motion_offset = Vector2(100, 0)
-motion_mirroring = Vector2(240, 0)
+motion_mirroring = Vector2(480, 0)
 
 [node name="Parallax-forest-back-trees" type="Sprite2D" parent="ParallaxLayer"]
-position = Vector2(136, 80)
+position = Vector2(272, 157)
+scale = Vector2(2, 2)
 texture = ExtResource("2_nv46w")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 z_index = 1
 z_as_relative = false
 motion_scale = Vector2(0.2, 0.03)
-motion_mirroring = Vector2(240, 0)
+motion_mirroring = Vector2(480, 0)
 
 [node name="Parallax-forest-middle-trees" type="Sprite2D" parent="ParallaxLayer2"]
-position = Vector2(136, 72)
+position = Vector2(273, 128)
+scale = Vector2(2, 2)
 texture = ExtResource("3_7kk82")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
 z_index = 2
 motion_scale = Vector2(0.3, 0)
-motion_mirroring = Vector2(240, 0)
+motion_mirroring = Vector2(480, 0)
 
 [node name="Parallax-forest-lights" type="Sprite2D" parent="ParallaxLayer4"]
-position = Vector2(136, 80)
+position = Vector2(274, 157)
+scale = Vector2(2, 2)
 texture = ExtResource("4_dsq1t")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
 z_index = 2
 motion_scale = Vector2(0.4, 0.05)
 motion_offset = Vector2(0.095, 0)
-motion_mirroring = Vector2(240, 0)
+motion_mirroring = Vector2(480, 0)
 
 [node name="Parallax-forest-front-trees" type="Sprite2D" parent="ParallaxLayer3"]
-position = Vector2(136, 56)
+position = Vector2(272, 116)
+scale = Vector2(2, 2)
 texture = ExtResource("5_5go3u")
