@@ -23,8 +23,10 @@ animations = [{
 [node name="Crate" type="Node2D"]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
+disable_mode = 1
+gravity_scale = 20.0
 can_sleep = false
-
+constant_force = Vector2(0, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("RectangleShape2D_tj8ej")
 
