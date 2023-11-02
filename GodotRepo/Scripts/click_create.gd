@@ -12,6 +12,7 @@ var all_wells = []
 
 const gravity_well= preload("res://Scenes/gravity_well.tscn")
 
+var gravity_bar
 var player_reference
 
 var player_base_position
@@ -20,6 +21,7 @@ var player_base_position
 func _ready():
 	all_wells = []
 	player_reference=get_node("../Player")
+	gravity_bar=get_node("../CanvasLayer/GravityBar")
 	player_base_position = player_reference.position
 	pass # Replace with function body.
 
@@ -29,6 +31,7 @@ func _process(delta):
 	pass
 	
 func _physics_process(delta):
+
 #	var gravity_impact = Vector2(0,0)
 #
 #	for well in all_wells:
@@ -49,6 +52,9 @@ func _physics_process(delta):
 #			#	square_distance_ish = 10
 #
 #			gravity_impact += (well_strength * delta * normalized_angle * (1/square_distance_ish))
+
+	var gravity_impact = Vector2(0,0)
+	
 		pass
 	
 #	#some final sanity checks
@@ -74,6 +80,7 @@ func _input(event: InputEvent) -> void:
 				if (get_global_mouse_position().distance_to(well.position) < delete_distance):
 					remove_child(well)
 					all_wells.erase(well)
+					gravity_bar.modify_mass(1)
 				else:
 					#probably we want to trigger a failure noise here
 					pass
@@ -81,11 +88,13 @@ func _input(event: InputEvent) -> void:
 		
 		# Left click creates
 		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed and !event.is_released() and (all_wells.size() < max_wells):
-			# create a new well
-			var gravity_well = gravity_well.instantiate()
-			# Click position is adjusted by player movement so we must place our gravity well accordingly
-			gravity_well.position = get_global_mouse_position()
-			all_wells.append(gravity_well)
-			add_child(gravity_well)
+			#This checks if we have enough mass to spend!
+			if(gravity_bar.spend_mass(1)):
+				# create a new well
+				var gravity_well = gravity_well.instantiate()
+				# Click position is adjusted by player movement so we must place our gravity well accordingly
+				gravity_well.position = get_global_mouse_position()
+				all_wells.append(gravity_well)
+				add_child(gravity_well)
 	pass
 	
