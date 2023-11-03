@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bk125ytsyqjkk" path="res://Scenes/door.tscn" id="7_gd657"]
 [ext_resource type="Script" path="res://Scripts/click_create.gd" id="9_h3jjg"]
 [ext_resource type="PackedScene" uid="uid://cghv5qiclr43p" path="res://Scenes/crate.tscn" id="10_ls8h6"]
-[ext_resource type="PackedScene" path="res://gravity_bar.tscn" id="11_bqpom"]
+[ext_resource type="PackedScene" uid="uid://2twd8nh8qmy4" path="res://gravity_bar.tscn" id="11_bqpom"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ly3ew"]
 texture = ExtResource("2_8t5eh")
