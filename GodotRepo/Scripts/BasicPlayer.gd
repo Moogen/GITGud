@@ -6,16 +6,9 @@ var state_machine = $"State Machine"
 var animations = $"AnimatedSprite2D"
 
 
-
-
 #implement some signal functions to pass player data to GUI
-
 func _ready() -> void:
 	state_machine.init(self)
-	
-
-
-	
 
 # Pass a reference of the player to the state machine so it can react accordingly
 func _unhandled_input(event: InputEvent) -> void:
