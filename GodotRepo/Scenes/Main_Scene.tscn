@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=13 format=3 uid="uid://dx86aggwohfna"]
+[gd_scene load_steps=14 format=3 uid="uid://dx86aggwohfna"]
 
 [ext_resource type="PackedScene" uid="uid://cw4qiiaoo7gks" path="res://Scenes/parallax_background.tscn" id="1_japse"]
 [ext_resource type="Texture2D" uid="uid://di8j2j2iwxw7r" path="res://Sprites/Portal_Tiles.png" id="2_8t5eh"]
@@ -11,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bk125ytsyqjkk" path="res://Scenes/door.tscn" id="7_gd657"]
 [ext_resource type="Script" path="res://Scripts/click_create.gd" id="9_h3jjg"]
 [ext_resource type="PackedScene" uid="uid://cghv5qiclr43p" path="res://Scenes/crate.tscn" id="10_ls8h6"]
-
+[ext_resource type="PackedScene" path="res://gravity_bar.tscn" id="11_bqpom"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ly3ew"]
 texture = ExtResource("2_8t5eh")
@@ -152,7 +151,7 @@ scale = Vector2(1.00068, 0.996113)
 logic_outputs = [NodePath("../Light")]
 
 [node name="Lever2" parent="." instance=ExtResource("6_tavke")]
-position = Vector2(472, 8)
+position = Vector2(473, 10)
 
 [node name="Lever3" parent="." instance=ExtResource("6_tavke")]
 position = Vector2(504, 8)
