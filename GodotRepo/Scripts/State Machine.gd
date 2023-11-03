@@ -11,6 +11,7 @@ var timestop = false
 
 var gravity_influence = Vector2(0,0)
 
+	
 # Initialize the state machine by giving each child state a reference to the
 # parent object it belongs to and enter the default starting_state.
 func init(parent: Player) -> void:
