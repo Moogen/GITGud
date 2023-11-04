@@ -28,5 +28,5 @@ func process_physics(delta: float, gravity_influence: Vector2) -> EnemyState:
 		grav_to_use = gravity_influence.y
 	parent.velocity.y += grav_to_use * delta
 	
-	parent.move()
+	parent.move(Vector2(0,0))
 	return null

@@ -14,39 +14,39 @@ var player_gravity: int = ProjectSettings.get_setting("physics/2d/default_gravit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    ui_container.visible = debug_toggle
-    add_to_group("Debug Group")
-    pass # Replace with function body.
+	ui_container.visible = debug_toggle
+	add_to_group("Debug Group")
+	pass # Replace with function body.
 
 func _process(delta):
-    #update the text of the object
-    var coyote_time_text = ("Coyote time" if coyote_time else "")
-    var jumb_buffer_text = ("Jump buffer" if jump_buffer else "")
-    self.text = "Velocity X: %0.2f\nVelocity Y: %0.2f\nGravity: X:%0.0f Y:%0.0f \n%s \n%s" % [player_velocity_x, player_velocity_y, gravity_influence.x, gravity_influence.y, coyote_time_text, jumb_buffer_text] 
-    pass
+	#update the text of the object
+	var coyote_time_text = ("Coyote time" if coyote_time else "")
+	var jumb_buffer_text = ("Jump buffer" if jump_buffer else "")
+	self.text = "Velocity X: %0.2f\nVelocity Y: %0.2f\nGravity: X:%0.0f Y:%0.0f \n%s \n%s" % [player_velocity_x, player_velocity_y, gravity_influence.x, gravity_influence.y, coyote_time_text, jumb_buffer_text] 
+	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func update_velocity(player_velocity):
-    player_velocity_x = player_velocity.x
-    player_velocity_y = player_velocity.y
-    pass
-    
+	player_velocity_x = player_velocity.x
+	player_velocity_y = player_velocity.y
+	pass
+	
 func update_coyote_time(_coyote_time):
-    coyote_time = _coyote_time
-    pass
-    
+	coyote_time = _coyote_time
+	pass
+	
 func update_gravity(_gravity):
-    player_gravity = _gravity
-    pass
-    
+	player_gravity = _gravity
+	pass
+	
 func update_gravity_influence(_gravity_influence):
-    gravity_influence = _gravity_influence
-    pass
-    
-    
+	gravity_influence = _gravity_influence
+	pass
+	
+	
 func _input(_event):
-    
-    if Input.is_action_just_pressed('Debug Key'):
-        debug_toggle = !debug_toggle
-        ui_container.visible = debug_toggle
-    pass
+	
+	if Input.is_action_just_pressed('Debug Key'):
+		debug_toggle = !debug_toggle
+		ui_container.visible = debug_toggle
+	pass
