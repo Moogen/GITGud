@@ -174,4 +174,4 @@ logic_outputs = [NodePath("../Light2")]
 position = Vector2(28, 85)
 
 [node name="Enemy" parent="." instance=ExtResource("12_nlfef")]
-position = Vector2(210, 113)
+position = Vector2(212, 132)
