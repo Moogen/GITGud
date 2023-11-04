@@ -75,3 +75,4 @@ fall_state = NodePath("../fall")
 jump_state = NodePath("../jump")
 move_state = NodePath("../move")
 animation_name = "idle"
+move_speed = null

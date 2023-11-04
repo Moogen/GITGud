@@ -20,12 +20,8 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
     state_machine.process_frame(delta)
     
-func _add_gravity():
-    print("Adding gravity")
-    pass
     
-func _remove_gravity():
-    print("Removing gravity")
-    pass
+func set_influence(gravity: float, grav_center: Vector2) -> void:
+    state_machine.set_influence(gravity, grav_center, self.global_position)
 
 

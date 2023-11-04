@@ -49,6 +49,7 @@ move_state = NodePath("../move")
 jump_state = NodePath("../jump")
 jump_buffer_time = 0.1
 coyote_time = 0.15
+gravity_time = null
 gravity_constant = 1.0
 animation_name = "fall"
 move_speed = 150.0

@@ -16,7 +16,7 @@ var gravity_time : float = 0.1
 
 @export
 var gravity_constant : float = 0.5
-
+var gravity_x : float = 0
 var gravity_timer : float = 0
 var coyote_timer : float = 0
 var jump_buffer_timer: float = 0
@@ -49,40 +49,25 @@ func process_input(event: InputEvent) -> State:
     return
     
 func process_physics(delta: float, gravity_influence: Vector2) -> State:
-    #gravity needs to fall off over time
-    if gravity_influence.x == 0:
-        parent.velocity.x *= .9
-    else:
-        parent.velocity.x += gravity_influence.x
     
     jump_buffer_timer -= delta
     coyote_timer -= delta
     gravity_timer -= delta
     
-    var grav_to_use = gravity
-    
-    
-    if gravity_influence.y != 0:
-        grav_to_use = gravity_influence.y
-    
-    if(gravity_timer > 0):
-        parent.velocity.y += gravity * delta
-        get_tree().call_group("Debug Group", "update_gravity", gravity)
-    else:
-        parent.velocity.y += gravity * gravity_constant * delta
-        get_tree().call_group("Debug Group", "update_gravity", gravity * gravity_constant)
+    get_tree().call_group("Debug Group", "update_gravity", gravity * gravity_constant)
         
     if(coyote_timer < 0):
         get_tree().call_group("Debug Group", "update_coyote_time", false)
-    
         
     var movement = Input.get_axis('ui_left', 'ui_right') * move_speed
     
     if movement != 0:
         parent.animations.flip_h = movement > 0
         
-    parent.velocity.x = movement
+    parent.velocity.y += gravity * delta + gravity_influence.y * delta
+    parent.velocity.x += movement * delta + gravity_influence.x * delta
     parent.move_and_slide()
+    
     get_tree().call_group("Debug Group", "update_velocity", parent.velocity)
     
     if parent.is_on_floor():

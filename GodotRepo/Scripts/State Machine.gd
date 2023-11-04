@@ -56,7 +56,9 @@ func process_frame(delta: float) -> void:
     if new_state:
         change_state(new_state)
 
-func set_gravity(influence: Vector2) -> void:
-    gravity_influence = influence
+func set_influence(gravity: float, grav_center: Vector2, player_center: Vector2) -> void:
+    var distance = grav_center - player_center
+    var norm_distance = distance.normalized()
+    gravity_influence = norm_distance * gravity
     get_tree().call_group("Debug Group", "update_gravity_influence", gravity_influence)
-    pass
+    

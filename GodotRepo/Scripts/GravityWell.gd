@@ -19,16 +19,22 @@ var mass_cost = 0
     
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    
     print("Super massive black hole")
     grav_area.gravity = blackhole_gravity * (click_timer_scale * click_time)
     grav_shape.shape.radius = blackhole_size * click_timer_scale * click_time
     grav_center_shape.shape.radius = center_size * click_timer_scale * click_time
     blackhole_sprite.scale = Vector2(sprite_scale * click_timer_scale * click_time, sprite_scale * click_timer_scale * click_time)
+    
+    #grav_area.connect("body_entered", self._on_body_entered)
+    grav_area.connect("body_exited", self._on_body_exited)
     pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+    #if we overlap with the player, apply gravity to them
+    for body in grav_area.get_overlapping_bodies():
+        if body is Player:
+            body.set_influence(grav_area.gravity, self.global_position)
     pass
 
 func remove_gravity():
@@ -36,11 +42,27 @@ func remove_gravity():
     grav_area.linear_damp_space_override = Area2D.SPACE_OVERRIDE_DISABLED
     grav_center_area.gravity_space_override = Area2D.SPACE_OVERRIDE_DISABLED
     grav_center_area.linear_damp_space_override = Area2D.SPACE_OVERRIDE_DISABLED
+    
+#check if we overlap from the player and remove any gravity affects
+    for body in grav_area.get_overlapping_bodies():
+        if body is Player:
+            body.set_influence(0, self.global_position)
     pass
     
 func set_size(click_time):
     self.click_time = click_time
     mass_cost = click_time/100 
+    pass
+    
+#func _on_body_entered(body : PhysicsBody2D) -> void:
+#    if body is Player:
+#        body.add_gravity()
+#    pass
+#
+
+func _on_body_exited(body : PhysicsBody2D) -> void:
+    if body is Player:
+        body.set_influence(0, self.global_position)
     pass
     
 func get_mass():
