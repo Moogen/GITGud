@@ -43,7 +43,7 @@ gravity = 100.0
 linear_damp_space_override = 3
 linear_damp = 10.0
 angular_damp_space_override = 3
-angular_damp = 0.0
+angular_damp = 0.01
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Center"]
 shape = SubResource("CircleShape2D_xne5h")

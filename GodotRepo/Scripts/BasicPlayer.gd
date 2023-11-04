@@ -19,5 +19,13 @@ func _physics_process(delta: float) -> void:
     
 func _process(delta: float) -> void:
     state_machine.process_frame(delta)
+    
+func _add_gravity():
+    print("Adding gravity")
+    pass
+    
+func _remove_gravity():
+    print("Removing gravity")
+    pass
 
 

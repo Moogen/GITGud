@@ -80,12 +80,10 @@ func _input(event: InputEvent) -> void:
                 # is adjusted by player movement we must adjust our calculation accordingly
                 
                 if (get_global_mouse_position().distance_to(well.position) < delete_distance):
-                    
                     gravity_bar.modify_mass(well.get_mass())
                     well.remove_gravity()
                     remove_child(well)
                     all_wells.erase(well)
-                    
                 else:
                     #probably we want to trigger a failure noise here
                     pass
