@@ -9,16 +9,16 @@ extends Node2D
 #all the variables for scaling the black hole
 
 const blackhole_gravity : float = 3000
-const blackhole_size    : float = 83
+const blackhole_size    : float = 83*5
 const center_size       : float = 10
 const click_timer_scale : float = .001 #.1 seconds is = the base size of the black hole
 const sprite_scale      : float = 0.025
 
 var click_time = 0
+var mass_cost = 0
     
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    
     
     print("Super massive black hole")
     grav_area.gravity = blackhole_gravity * (click_timer_scale * click_time)
@@ -40,4 +40,9 @@ func remove_gravity():
     
 func set_size(click_time):
     self.click_time = click_time
+    mass_cost = click_time/100 
     pass
+    
+func get_mass():
+    return mass_cost
+

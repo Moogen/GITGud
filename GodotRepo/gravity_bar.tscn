@@ -9,15 +9,17 @@
 script = ExtResource("1_7pj4k")
 
 [node name="Frame" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(16, 64)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_a3off")
 
 [node name="Bar" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(16, 64)
 scale = Vector2(0.1, 0.1)
 sprite_frames = ExtResource("3_hq8xi")
-animation = &"0"
+animation = &"4"
 offset = Vector2(3, 5)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -29,3 +31,12 @@ theme = ExtResource("4_p5icd")
 theme_override_font_sizes/normal_font_size = 0
 text = "Mass
 Press \"m\" to add"
+
+[node name="MassBar" type="ProgressBar" parent="."]
+offset_left = 5.0
+offset_top = 24.0
+offset_right = 34.0
+offset_bottom = 121.0
+theme = ExtResource("4_p5icd")
+value = 100.0
+fill_mode = 3

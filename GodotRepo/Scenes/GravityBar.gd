@@ -1,12 +1,13 @@
 extends Node2D
 
-var max_mass = 4;
-var cur_mass = 4;
-var mass_bar;
+var max_mass = 100;
+var cur_mass = 100;
+
+@onready var mass_bar : ProgressBar = $MassBar;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    mass_bar = get_node("Bar")
+    #mass_bar = get_node("Bar")
     adjust_mass_bar()
     pass # Replace with function body.
 
@@ -31,6 +32,7 @@ func modify_mass(massToAdd: int):
     pass
     
 func spend_mass(massToSpend: int) -> bool:
+    print(massToSpend)
     if(massToSpend <= 0):
         print("What are you doing you big dummy you can't spend negative mass! You should be using the modify_mass function")
         return false
@@ -41,5 +43,6 @@ func spend_mass(massToSpend: int) -> bool:
     return true
     
 func adjust_mass_bar():
-    mass_bar.play(str(cur_mass))
+    #mass_bar.play(str(cur_mass))
+    mass_bar.value = (float(cur_mass)/float(max_mass))*100
     pass

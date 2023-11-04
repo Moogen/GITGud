@@ -80,10 +80,12 @@ func _input(event: InputEvent) -> void:
                 # is adjusted by player movement we must adjust our calculation accordingly
                 
                 if (get_global_mouse_position().distance_to(well.position) < delete_distance):
+                    
+                    gravity_bar.modify_mass(well.get_mass())
                     well.remove_gravity()
                     remove_child(well)
                     all_wells.erase(well)
-                    gravity_bar.modify_mass(1)
+                    
                 else:
                     #probably we want to trigger a failure noise here
                     pass
@@ -97,12 +99,10 @@ func _input(event: InputEvent) -> void:
             
         elif event.button_index == MOUSE_BUTTON_LEFT and event.is_released() and (all_wells.size() < max_wells):
             #This checks if we have enough mass to spend!
-            
             var click_time = Time.get_ticks_msec() - timer
             print("Time elapsed: ", click_time)
-        
-            
-            if(gravity_bar.spend_mass(1)):
+                   
+            if(gravity_bar.spend_mass(int(click_time/100))):
                 # create a new well
                 var gravity_well = gravity_well_template.instantiate().duplicate()
                 
