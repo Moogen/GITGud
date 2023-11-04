@@ -4,10 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://raej4vyjje2t" path="res://Sprites/dark_hole.png" id="2_hmhry"]
 [ext_resource type="Script" path="res://Scenes/BlackholeSprite.gd" id="3_sicav"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nobju"]
-radius = 83.74
+[sub_resource type="CircleShape2D" id="CircleShape2D_ssj3i"]
+resource_local_to_scene = true
+radius = 83.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wsogd"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_xne5h"]
+resource_local_to_scene = true
 
 [node name="GravityWell" type="Node2D"]
 script = ExtResource("1_k6cux")
@@ -20,21 +22,28 @@ script = ExtResource("3_sicav")
 [node name="Blackhole" type="Area2D" parent="."]
 gravity_space_override = 1
 gravity_point = true
-gravity_point_unit_distance = 10.0
 gravity_point_center = Vector2(0, 0)
 gravity_direction = Vector2(0, 0)
-gravity = 32000.0
+gravity = 3000.0
 linear_damp_space_override = 1
-linear_damp = 0.5
+linear_damp = 10.118
 angular_damp_space_override = 1
 angular_damp = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Blackhole"]
-shape = SubResource("CircleShape2D_nobju")
+shape = SubResource("CircleShape2D_ssj3i")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Center" type="Area2D" parent="."]
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 100.0
+linear_damp_space_override = 3
+linear_damp = 10.0
+angular_damp_space_override = 3
+angular_damp = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("CircleShape2D_wsogd")
-debug_color = Color(0.933333, 0, 0.647059, 0.419608)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Center"]
+shape = SubResource("CircleShape2D_xne5h")
