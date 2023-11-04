@@ -16,33 +16,33 @@ const sprite_scale      : float = 0.025
 
 var click_time = 0
 var mass_cost = 0
-    
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    
-    print("Super massive black hole")
-    grav_area.gravity = blackhole_gravity * (click_timer_scale * click_time)
-    grav_shape.shape.radius = blackhole_size * click_timer_scale * click_time
-    grav_center_shape.shape.radius = center_size * click_timer_scale * click_time
-    blackhole_sprite.scale = Vector2(sprite_scale * click_timer_scale * click_time, sprite_scale * click_timer_scale * click_time)
-    pass # Replace with function body.
+	
+	print("Super massive black hole")
+	grav_area.gravity = blackhole_gravity * (click_timer_scale * click_time)
+	grav_shape.shape.radius = blackhole_size * click_timer_scale * click_time
+	grav_center_shape.shape.radius = center_size * click_timer_scale * click_time
+	blackhole_sprite.scale = Vector2(sprite_scale * click_timer_scale * click_time, sprite_scale * click_timer_scale * click_time)
+	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-    pass
+	pass
 
 func remove_gravity():
-    grav_area.gravity_space_override = Area2D.SPACE_OVERRIDE_DISABLED
-    grav_area.linear_damp_space_override = Area2D.SPACE_OVERRIDE_DISABLED
-    grav_center_area.gravity_space_override = Area2D.SPACE_OVERRIDE_DISABLED
-    grav_center_area.linear_damp_space_override = Area2D.SPACE_OVERRIDE_DISABLED
-    pass
-    
+	grav_area.gravity_space_override = Area2D.SPACE_OVERRIDE_DISABLED
+	grav_area.linear_damp_space_override = Area2D.SPACE_OVERRIDE_DISABLED
+	grav_center_area.gravity_space_override = Area2D.SPACE_OVERRIDE_DISABLED
+	grav_center_area.linear_damp_space_override = Area2D.SPACE_OVERRIDE_DISABLED
+	pass
+	
 func set_size(click_time):
-    self.click_time = click_time
-    mass_cost = click_time/100 
-    pass
-    
+	self.click_time = click_time
+	mass_cost = click_time/100 
+	pass
+	
 func get_mass():
-    return mass_cost
+	return mass_cost
 

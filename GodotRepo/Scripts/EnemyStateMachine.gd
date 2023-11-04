@@ -1,20 +1,19 @@
-class_name StateMachine extends Node
+class_name EnemyStateMachine extends Node
 
 @export
-var starting_state: State
+var starting_state: EnemyState
 @export
-var current_state: State
+var current_state: EnemyState
 @export
-var previous_state: State
+var previous_state: EnemyState
 
 var timestop = false
 
-var gravity_influence = Vector2(0,0)
-
+var gravity_influence = Vector2(0,-1)
 	
 # Initialize the state machine by giving each child state a reference to the
 # parent object it belongs to and enter the default starting_state.
-func init(parent: Player) -> void:
+func init(parent: Enemy) -> void:
 	for child in get_children():
 		child.parent = parent
 
@@ -22,7 +21,7 @@ func init(parent: Player) -> void:
 	change_state(starting_state)
 
 # Change to the new state by first calling any exit logic on the current state.
-func change_state(new_state: State) -> void:
+func change_state(new_state: EnemyState) -> void:
 	if current_state:
 		current_state.exit()
 		
@@ -38,8 +37,6 @@ func process_physics(delta: float) -> void:
 		change_state(new_state)
 
 func process_input(event: InputEvent) -> void:
-	var new_state = current_state.process_input(event)
-
 	if Input.is_action_just_pressed('timestop'): #time slows when pressing F4 as a debug feature
 		timestop = !timestop
 		if(timestop):
@@ -47,9 +44,6 @@ func process_input(event: InputEvent) -> void:
 		else:
 			Engine.set_time_scale(1)
 	pass
-	
-	if new_state:
-		change_state(new_state)
 
 func process_frame(delta: float) -> void:
 	var new_state = current_state.process_frame(delta)
