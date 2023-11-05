@@ -8,11 +8,11 @@ extends Node2D
 @onready var blackhole_sprite   : Sprite2D          = $BlackholeSprite
 #all the variables for scaling the black hole
 
-const blackhole_gravity : float = 3000*100
+const blackhole_gravity : float = 3000*10
 const blackhole_size    : float = 83*5
-const center_size       : float = 10
+const center_size       : float = 83
 const click_timer_scale : float = .001 #.1 seconds is = the base size of the black hole
-const sprite_scale      : float = 0.025
+const sprite_scale      : float = 0.025*10
 
 var click_time = 0
 var mass_cost = 0
