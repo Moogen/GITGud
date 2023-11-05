@@ -174,4 +174,4 @@ logic_outputs = [NodePath("../Light2")]
 position = Vector2(28, 85)
 
 [node name="Big_Crate" parent="." instance=ExtResource("12_vrtnx")]
-position = Vector2(253, 86)
+position = Vector2(1, 79)

@@ -35,7 +35,7 @@ func _process(delta):
     #if we overlap with the player, apply gravity to them
     for body in grav_area.get_overlapping_bodies():
         if body is Player:
-            body.set_influence(grav_area.gravity, self.global_position)
+            body.set_influence(grav_area.gravity*5, self.global_position, grav_center_shape.shape.radius)
     pass
 
 func remove_gravity():
@@ -47,7 +47,7 @@ func remove_gravity():
 #check if we overlap from the player and remove any gravity affects
     for body in grav_area.get_overlapping_bodies():
         if body is Player:
-            body.set_influence(0, self.global_position)
+            body.set_influence(0, self.global_position, 0)
     pass
     
 func set_size(click_time):
@@ -63,7 +63,7 @@ func set_size(click_time):
 
 func _on_body_exited(body : PhysicsBody2D) -> void:
     if body is Player:
-        body.set_influence(0, self.global_position)
+        body.set_influence(0, self.global_position, 0)
     pass
     
 func get_mass():

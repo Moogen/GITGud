@@ -13,7 +13,6 @@ radius = 7.0
 height = 28.0
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(239, 141)
 floor_stop_on_slope = false
 script = ExtResource("1_jtj3m")
 
@@ -28,12 +27,10 @@ position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 43)
 shape = SubResource("CapsuleShape2D_ulmm2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visibility_layer = 4
-position = Vector2(1, 42)
 sprite_frames = ExtResource("2_7dg1n")
 animation = &"fall"
 

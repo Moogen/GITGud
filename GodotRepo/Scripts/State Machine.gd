@@ -37,7 +37,7 @@ func process_physics(delta: float) -> void:
     
     #handle gravity velocity x for every state in the state machine
     gravity_velocity_x += gravity_influence.x * delta
-    gravity_velocity_x *=  0.7 #multiply velocity by some coeff to reduce it
+    gravity_velocity_x *=  0.8 #multiply velocity by some coeff to reduce it
 
     var new_state = current_state.process_physics(delta, gravity_influence, gravity_velocity_x)
     get_tree().call_group("Debug Group", "update_gravity_velocity_x", gravity_velocity_x)
@@ -64,10 +64,16 @@ func process_frame(delta: float) -> void:
     if new_state:
         change_state(new_state)
 
-func set_influence(gravity: float, grav_center: Vector2, player_center: Vector2) -> void:
+func set_influence(gravity: float, grav_center: Vector2, player_center: Vector2, grav_center_radius : float) -> void:
     var distance = grav_center - player_center
     var radius = grav_center.distance_to(player_center)
     var norm_distance = distance.normalized()
-    gravity_influence = norm_distance * gravity * 1/(radius*radius)
-    get_tree().call_group("Debug Group", "update_gravity_influence", gravity_influence)
+    print(radius - grav_center_radius)
+    
+    if(radius > grav_center_radius*1.25):
+        gravity_influence = norm_distance * gravity * 1/(radius-grav_center_radius)
+    else:
+        gravity_influence = Vector2(0,0)
+    
+    get_tree().call_group("Debug Group", "update_gravity_influence", norm_distance * gravity * 1/(radius-grav_center_radius))
     
