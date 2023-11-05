@@ -48,7 +48,7 @@ func process_input(event: InputEvent) -> State:
     
     return
     
-func process_physics(delta: float, gravity_influence: Vector2) -> State:
+func process_physics(delta: float, gravity_influence: Vector2, gravity_velocity_x: float) -> State:
     
     jump_buffer_timer -= delta
     coyote_timer -= delta
@@ -65,7 +65,7 @@ func process_physics(delta: float, gravity_influence: Vector2) -> State:
         parent.animations.flip_h = movement > 0
         
     parent.velocity.y += gravity * delta + gravity_influence.y * delta
-    parent.velocity.x += movement * delta + gravity_influence.x * delta
+    parent.velocity.x = movement + gravity_velocity_x
     parent.move_and_slide()
     
     get_tree().call_group("Debug Group", "update_velocity", parent.velocity)

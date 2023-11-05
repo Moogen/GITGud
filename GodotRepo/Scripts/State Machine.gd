@@ -10,6 +10,7 @@ var previous_state: State
 var timestop = false
 
 var gravity_influence = Vector2(0,0)
+var gravity_velocity_x = 0
 
     
 # Initialize the state machine by giving each child state a reference to the
@@ -33,7 +34,14 @@ func change_state(new_state: State) -> void:
 # Pass through functions for the Player to call,
 # handling state changes as needed.
 func process_physics(delta: float) -> void:
-    var new_state = current_state.process_physics(delta, gravity_influence)
+    
+    #handle gravity velocity x for every state in the state machine
+    gravity_velocity_x += gravity_influence.x * delta
+    gravity_velocity_x *=  0.8 #multiply velocity by some coeff to reduce it
+
+    var new_state = current_state.process_physics(delta, gravity_influence, gravity_velocity_x)
+    get_tree().call_group("Debug Group", "update_gravity_velocity_x", gravity_velocity_x)
+    
     if new_state:
         change_state(new_state)
 

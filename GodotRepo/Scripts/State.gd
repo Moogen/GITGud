@@ -25,5 +25,5 @@ func process_input(event: InputEvent) -> State:
 func process_frame(delta: float) -> State:
     return null
 
-func process_physics(delta: float, gravity_influence: Vector2) -> State:
+func process_physics(delta: float, gravity_influence: Vector2, gravity_velocity_x: float) -> State:
     return null

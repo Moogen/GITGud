@@ -16,12 +16,12 @@ func process_input(event: InputEvent) -> State:
         
     return null
 
-func process_physics(delta: float, gravity_influence: Vector2) -> State:
+func process_physics(delta: float, gravity_influence: Vector2, gravity_velocity_x: float) -> State:
     
     var movement = Input.get_axis('ui_left', 'ui_right') * move_speed
     
     parent.velocity.y += gravity * delta + gravity_influence.y * delta
-    parent.velocity.x += movement * delta + gravity_influence.x * delta
+    parent.velocity.x = movement + gravity_velocity_x
     
     if movement == 0:
         return idle_state
