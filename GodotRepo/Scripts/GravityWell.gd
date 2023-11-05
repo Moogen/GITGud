@@ -8,7 +8,7 @@ extends Node2D
 @onready var blackhole_sprite   : Sprite2D          = $BlackholeSprite
 #all the variables for scaling the black hole
 
-const blackhole_gravity : float = 3000
+const blackhole_gravity : float = 3000*100
 const blackhole_size    : float = 83*5
 const center_size       : float = 10
 const click_timer_scale : float = .001 #.1 seconds is = the base size of the black hole
@@ -19,8 +19,9 @@ var mass_cost = 0
     
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    print("Super massive black hole")
+    print("Supermassive black hole")
     grav_area.gravity = blackhole_gravity * (click_timer_scale * click_time)
+    grav_area.gravity_point_unit_distance = center_size * click_timer_scale * click_time
     grav_shape.shape.radius = blackhole_size * click_timer_scale * click_time
     grav_center_shape.shape.radius = center_size * click_timer_scale * click_time
     blackhole_sprite.scale = Vector2(sprite_scale * click_timer_scale * click_time, sprite_scale * click_timer_scale * click_time)
