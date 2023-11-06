@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1a7g4prruqay"]
+[gd_scene load_steps=5 format=3 uid="uid://2twd8nh8qmy4"]
 
 [ext_resource type="Script" path="res://Scenes/GravityBar.gd" id="1_7pj4k"]
 [ext_resource type="Texture2D" uid="uid://h5x3amanm0fp" path="res://Sprites/GravityBar.png" id="2_a3off"]
