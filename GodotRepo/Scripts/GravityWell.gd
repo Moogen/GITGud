@@ -53,6 +53,8 @@ func remove_gravity():
 func set_size(click_time):
     self.click_time = click_time
     mass_cost = click_time/100 
+    
+
     pass
     
 #func _on_body_entered(body : PhysicsBody2D) -> void:
