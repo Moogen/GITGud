@@ -78,6 +78,7 @@ func _input(event: InputEvent) -> void:
             remove_child(well)
             all_wells.erase(well)
             
+
     if event is InputEventMouseButton and gravity_createable:
         # Right click deletes
         
@@ -118,7 +119,5 @@ func _input(event: InputEvent) -> void:
                 gravity_well.position = get_global_mouse_position()
                 all_wells.append(gravity_well)
                 add_child(gravity_well)
-                
-
     pass
     
