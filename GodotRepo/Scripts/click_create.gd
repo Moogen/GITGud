@@ -69,6 +69,16 @@ func _physics_process(delta):
 #	return null
         
 func _input(event: InputEvent) -> void:
+    
+    if Input.is_action_just_pressed('delete_wells'):
+        print("Delete all wells")
+        for well in all_wells:
+            gravity_bar.modify_mass(well.get_mass())
+            well.remove_gravity()
+            remove_child(well)
+            all_wells.erase(well)
+            
+
     if event is InputEventMouseButton and gravity_createable:
         # Right click deletes
         
