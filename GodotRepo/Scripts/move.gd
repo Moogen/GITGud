@@ -7,6 +7,7 @@ var idle_state: State
 @export
 var jump_state: State
 var gravity_x : float = 0
+
 func enter(previous_state: State) -> void:
     super(previous_state)
 

@@ -68,7 +68,6 @@ func set_influence(gravity: float, grav_center: Vector2, player_center: Vector2,
     var distance = grav_center - player_center
     var radius = grav_center.distance_to(player_center)
     var norm_distance = distance.normalized()
-    print(radius - grav_center_radius)
     
     if(radius > grav_center_radius*1.25):
         gravity_influence = norm_distance * gravity * 1/(radius-grav_center_radius)
