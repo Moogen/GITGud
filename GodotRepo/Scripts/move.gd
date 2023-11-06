@@ -30,7 +30,6 @@ func process_physics(delta: float, gravity_influence: Vector2, gravity_velocity_
     get_tree().call_group("Debug Group", "update_velocity", parent.velocity)
     parent.move_and_slide()
   
-    
     if !parent.is_on_floor():
         return fall_state
     return null
