@@ -81,7 +81,7 @@ func _input(event: InputEvent) -> void:
         for well in temp_wells: #search the temp array for all wells
             gravity_bar.modify_mass(well.get_mass()) #remove the wells and return them to the player
             well.remove_gravity()
-            remove_child(well)
+            #remove_child(well)
             all_wells.erase(well)
             
     if event is InputEventMouseButton and gravity_createable:
@@ -97,7 +97,7 @@ func _input(event: InputEvent) -> void:
                 if (get_global_mouse_position().distance_to(well.position) < delete_distance):
                     gravity_bar.modify_mass(well.get_mass())
                     well.remove_gravity()
-                    remove_child(well)
+                    #remove_child(well)
                     all_wells.erase(well)
                 else:
                     #probably we want to trigger a failure noise here

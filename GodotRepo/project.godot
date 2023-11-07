@@ -91,12 +91,6 @@ delete_wells={
 common/physics_ticks_per_second=300
 2d/default_angular_damp=0.0
 
-[physics]
-
-common/physics_ticks_per_second=300
-2d/default_linear_damp=0.1
-2d/default_angular_damp=0.0
-
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
