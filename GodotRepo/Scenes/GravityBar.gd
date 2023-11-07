@@ -1,7 +1,7 @@
 extends Node2D
 
-var max_mass = 10;
-var cur_mass = 10;
+var max_mass = 100;
+var cur_mass = 100;
 
 @onready var mass_bar : ProgressBar = $MassBar;
 
@@ -39,6 +39,8 @@ func spend_mass(massToSpend: int) -> bool:
         return false
     else:
         modify_mass(-1*massToSpend)
+    
+    adjust_mass_bar()
     return true
     
 func has_mass(massToSpend: int) -> bool:

@@ -11,7 +11,7 @@ extends Node2D
 const blackhole_gravity : float = 3000*10
 const blackhole_size    : float = 83*5
 const center_size       : float = 83
-const click_timer_scale : float = .001 #.1 seconds is = the base size of the black hole
+const click_timer_scale : float = 0.01 #.1 seconds is = the base size of the black hole
 const sprite_scale      : float = 0.025*4
 
 var click_time = 0
@@ -20,11 +20,7 @@ var mass_cost = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
     print("Supermassive black hole")
-    grav_area.gravity = blackhole_gravity * (click_timer_scale * click_time)
-    grav_area.gravity_point_unit_distance = center_size * click_timer_scale * click_time
-    grav_shape.shape.radius = blackhole_size * click_timer_scale * click_time
-    grav_center_shape.shape.radius = center_size * click_timer_scale * click_time
-    blackhole_sprite.scale = Vector2(sprite_scale * click_timer_scale * click_time, sprite_scale * click_timer_scale * click_time)
+    set_size(0,0)
     
     #grav_area.connect("body_entered", self._on_body_entered)
     grav_area.connect("body_exited", self._on_body_exited)
@@ -50,11 +46,14 @@ func remove_gravity():
             body.set_influence(0, self.global_position, 0)
     pass
     
-func set_size(click_time):
+func set_size(click_time, mass_cost): #set size scales off the duration of the click
     self.click_time = click_time
-    mass_cost = click_time/100 
-    
-
+    self.mass_cost = mass_cost
+    grav_area.gravity = blackhole_gravity * (click_timer_scale * click_time)
+    grav_area.gravity_point_unit_distance = center_size * click_timer_scale * click_time
+    grav_shape.shape.radius = blackhole_size * click_timer_scale * click_time
+    grav_center_shape.shape.radius = center_size * click_timer_scale * click_time
+    blackhole_sprite.scale = Vector2(sprite_scale * click_timer_scale * click_time, sprite_scale * click_timer_scale * click_time)
     pass
     
 #func _on_body_entered(body : PhysicsBody2D) -> void:
