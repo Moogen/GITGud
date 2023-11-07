@@ -13,8 +13,9 @@ const blackhole_size    : float = 83*5
 const center_size       : float = 83
 const click_timer_scale : float = 0.01 #.1 seconds is = the base size of the black hole
 const sprite_scale      : float = 0.025*4
-const particle_disappear_coeff  : float = 0.012
-const particle_ammount_coef  : float = 5
+const particle_disappear_coeff  : float = 0.0075
+const particle_ammount_coef  : float = 15
+const mass_particle_gravity  : float = 250 #controls the force at which the mass particles are attracted to the player
 
 var click_time = 0
 var mass_cost = 0
@@ -61,11 +62,9 @@ func remove_gravity():
         if body is Player:
             body.set_influence(0, self.global_position, 0)
             
+    particle_emitter.visibility_rect.grow(25)  #programatically adjust this rect
     particle_emitter.emitting = true
     
-    
-
-
     pass
 
 func finish_mass_anim():
@@ -87,13 +86,14 @@ func set_particles_direction():
     
     #The force should be = to the players position * gravity intensity
     var particle_vector = players[0].global_position - self.global_position
-    var particle_grav = particle_vector.normalized() * 100
+    var particle_grav = particle_vector.normalized() * mass_particle_gravity
     particle_emitter.process_material.gravity = Vector3(particle_grav.x, particle_grav.y, 0)
     particle_emitter.lifetime =  players[0].global_position.distance_to(self.global_position) * particle_disappear_coeff
+  
     #print(mass_particle_emitter.lifetime)
 
 func set_particles_size(): #set the size of the particles
-    particle_emitter.process_material.emission_sphere_radius = center_size * click_timer_scale * click_time #use the same math as center size
+    particle_emitter.process_material.emission_sphere_radius = center_size * click_timer_scale * click_time /2  #use the same math as center size
     particle_emitter.amount = click_time * particle_ammount_coef
     #sparticle_emitter.lifetime = click_time * particle_disappear_coeff
     
