@@ -7,7 +7,7 @@ var fireSpeed = 2
 var fireTimer = 0
 
 @onready
-var projectile = preload("res://Scenes/projectile.tscn")
+var projectile = preload("res://Scenes/laserProjectile.tscn")
 @onready
 var enemy_state_machine = $"EnemyStateMachine"
 @onready 
@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 	
 	if(fireTimer >= fireSpeed):
 		var playerPosition = get_node("../Player").position
-		var directionToFire = get_angle_to(playerPosition + Vector2(0,25))
+		var directionToFire = get_angle_to(playerPosition)
 		var angle = Vector2(cos(directionToFire), sin(directionToFire))
 		print(angle)
 		#var space_state = get_world_2d().direct_space_state
@@ -41,14 +41,15 @@ func _process(delta: float) -> void:
 		#else: print(result)
 		
 		fireTimer = 0
-		fireAtPlayer(angle)
+		fireAtPlayer(angle, directionToFire)
 	
 func move(distanceToMove: Vector2):
 	self.global_translate(distanceToMove)
 	
-func fireAtPlayer(angle: Vector2):
+func fireAtPlayer(angle: Vector2, rotation: float):
 	var laser = projectile.instantiate().duplicate()
+	laser.rotation += rotation
 	laser.global_position = self.global_position+angle*5
 	get_node("../.").add_child(laser)
-	laser.set_velocity(angle*50000)
+	laser.set_move(angle)
 	pass

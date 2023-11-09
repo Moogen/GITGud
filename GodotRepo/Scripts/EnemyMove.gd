@@ -20,7 +20,7 @@ func process_physics(delta: float, gravity_influence: Vector2) -> EnemyState:
 		direction*= -1
 		flipFlag = false
 		
-	var distanceToMove = ceil(delta * speed)*direction
+	var distanceToMove = (delta * speed)*direction
 		
 	#True if we'd go past our max range
 	if(abs(distanceToMove)+distanceTraveled > range):
