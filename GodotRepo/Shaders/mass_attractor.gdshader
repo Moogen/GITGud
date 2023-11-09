@@ -33,7 +33,7 @@ uniform float emission_sphere_radius;
 uniform vec4 color_value : source_color;
 uniform vec3 gravity;
 uniform vec3 attractor_pos;
-
+uniform float obj_destroy_distance;
 
 float rand_from_seed(inout uint seed) {
 	int k;

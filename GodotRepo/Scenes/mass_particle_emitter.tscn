@@ -38,6 +38,8 @@ uniform vec3 gravity;
 uniform vec3 player_loc;
 uniform float attractor_str;
 
+uniform float obj_destroy_distance;
+
 
 float rand_from_seed(inout uint seed) {
 	int k;
@@ -150,7 +152,7 @@ void process() {
     vec3 player_attractor_force = normalize(player_loc - pos)*attractor_str;//* attractor_str;
     force += player_attractor_force; 
     VELOCITY = player_attractor_force;
-    if(length(player_loc - pos) < 10.0)
+    if(length(player_loc - pos) < obj_destroy_distance)
     {
         ACTIVE = false;
     }
@@ -257,6 +259,7 @@ shader_parameter/color_value = Color(0.431373, 0.317647, 0.505882, 1)
 shader_parameter/gravity = Vector3(0, -1e-06, 0)
 shader_parameter/player_loc = null
 shader_parameter/attractor_str = 1000.0
+shader_parameter/obj_destroy_distance = null
 
 [node name="MassParticles" type="GPUParticles2D"]
 emitting = false

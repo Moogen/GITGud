@@ -23,7 +23,6 @@ var mass_cost = 0
 
 var mass_return_anim_time = 10
 
-
 @onready var template_particle_emitter : GPUParticles2D = $MassParticles
 var particle_emitter : GPUParticles2D
 
@@ -43,7 +42,6 @@ func _process(delta):
     set_particles_direction() #set the particle direction of the emitter
     set_particles_size()
    
-    
     #if we overlap with the player, apply gravity to them
     for body in grav_area.get_overlapping_bodies():
         if body is Player:

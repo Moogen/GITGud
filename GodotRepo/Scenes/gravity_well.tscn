@@ -49,7 +49,7 @@ uniform vec4 color_value : source_color;
 uniform vec3 gravity;
 uniform vec3 player_loc;
 uniform float attractor_str;
-
+uniform float obj_destroy_distance;
 
 float rand_from_seed(inout uint seed) {
 	int k;
@@ -162,7 +162,7 @@ void process() {
     vec3 player_attractor_force = normalize(player_loc - pos)*attractor_str;//* attractor_str;
     force += player_attractor_force; 
     VELOCITY = player_attractor_force;
-    if(length(player_loc - pos) < 10.0)
+    if(length(player_loc - pos) < obj_destroy_distance)
     {
         ACTIVE = false;
     }
@@ -233,7 +233,7 @@ void process() {
 
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4scno"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j0uhd"]
 resource_local_to_scene = true
 shader = SubResource("Shader_kfeqs")
 shader_parameter/direction = Vector3(0, 0, 0)
@@ -269,6 +269,7 @@ shader_parameter/color_value = Color(0.431373, 0.317647, 0.505882, 1)
 shader_parameter/gravity = Vector3(0, -1e-06, 0)
 shader_parameter/player_loc = null
 shader_parameter/attractor_str = null
+shader_parameter/obj_destroy_distance = 10.0
 
 [node name="GravityWell" type="Node2D"]
 script = ExtResource("1_k6cux")
@@ -306,4 +307,4 @@ angular_damp = 0.01
 shape = SubResource("CircleShape2D_xne5h")
 
 [node name="MassParticles" parent="." instance=ExtResource("4_qeu1r")]
-process_material = SubResource("ShaderMaterial_4scno")
+process_material = SubResource("ShaderMaterial_j0uhd")
