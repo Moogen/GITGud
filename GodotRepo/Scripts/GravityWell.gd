@@ -13,10 +13,10 @@ const blackhole_size    : float = 83*5
 const center_size       : float = 83
 const click_timer_scale : float = 0.01 #.1 seconds is = the base size of the black hole
 const sprite_scale      : float = 0.025*4
-const particle_disappear_coeff  : float = 0.015
-const particle_ammount_coef     : float = 10
-const particle_center_size      : float = 83/4
-const mass_particle_gravity     : float = 500 #controls the force at which the mass particles are attracted to the player
+#const particle_disappear_coeff  : float = 0.015
+const particle_ammount_coef     : float = 100
+const particle_center_size      : float = 83/2
+const mass_particle_gravity     : float = 250 #controls the force at which the mass particles are attracted to the player
 
 var click_time = 0
 var mass_cost = 0
@@ -35,6 +35,7 @@ func _ready():
     add_child(particle_emitter)
     #grav_area.connect("body_entered", self._on_body_entered)
     grav_area.connect("body_exited", self._on_body_exited)
+    particle_emitter.process_material.set_shader_parameter("attractor_str", mass_particle_gravity)
     pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -88,13 +89,13 @@ func set_particles_direction():
     #The force should be = to the players position * gravity intensity
     var particle_vector = players[0].global_position - self.global_position
     var particle_grav = particle_vector.normalized() * mass_particle_gravity
-    particle_emitter.process_material.gravity = Vector3(particle_grav.x, particle_grav.y, 0)
-    particle_emitter.lifetime =  players[0].global_position.distance_to(self.global_position) * particle_disappear_coeff
+    particle_emitter.process_material.set_shader_parameter("player_loc", players[0].global_position)
+   # particle_emitter.lifetime =  players[0].global_position.distance_to(self.global_position) * particle_disappear_coeff
   
     #print(mass_particle_emitter.lifetime)
 
 func set_particles_size(): #set the size of the particles
-    particle_emitter.process_material.emission_sphere_radius = particle_center_size * click_timer_scale * click_time  #use the same math as center size
+    particle_emitter.process_material.set_shader_parameter("emission_sphere_radius", particle_center_size * click_timer_scale * click_time)  #use the same math as center size
     particle_emitter.amount = click_time * particle_ammount_coef
     #sparticle_emitter.lifetime = click_time * particle_disappear_coeff
     
