@@ -280,6 +280,8 @@ texture = ExtResource("2_hmhry")
 script = ExtResource("3_jgrx1")
 
 [node name="Blackhole" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 gravity_space_override = 1
 gravity_point = true
 gravity_point_center = Vector2(0, 0)
@@ -294,6 +296,9 @@ shape = SubResource("CircleShape2D_ssj3i")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Center" type="Area2D" parent="."]
+position = Vector2(-1, 0)
+collision_layer = 3
+collision_mask = 3
 gravity_space_override = 3
 gravity_point = true
 gravity_point_center = Vector2(0, 0)

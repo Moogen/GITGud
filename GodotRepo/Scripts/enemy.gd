@@ -33,18 +33,33 @@ func _process(delta: float) -> void:
 		var playerPosition = get_node("../Player").position
 		var directionToFire = get_angle_to(playerPosition)
 		var angle = Vector2(cos(directionToFire), sin(directionToFire))
-		print(angle)
-		#var space_state = get_world_2d().direct_space_state
-		#var query = PhysicsRayQueryParameters2D.create(self.position+Vector2(0,-40), playerPosition)
-		#var result = space_state.intersect_ray(query)
-		#if(result): print(result.position)
-		#else: print(result)
 		
-		fireTimer = 0
-		fireAtPlayer(angle, directionToFire)
+		if(check_fire(angle, directionToFire)):
+			fireAtPlayer(angle, directionToFire)
+			fireTimer = 0
 	
 func move(distanceToMove: Vector2):
 	self.global_translate(distanceToMove)
+	
+func check_fire(angle: Vector2, rotation: float) -> bool:
+	# see if we have line of sight of player
+	var testLaser = projectile.instantiate().duplicate()
+	testLaser.rotation += rotation
+	testLaser.global_position = self.global_position+angle*5
+	get_node("../.").add_child(testLaser)
+	var collision = testLaser.move_and_collide(angle*200, false)
+	
+	if(collision):
+		var collider = collision.get_collider()
+		if(collider) is Player:
+			testLaser.queue_free()
+			return true
+		else: 
+			testLaser.queue_free()
+			return false
+	else:
+		testLaser.queue_free()
+		return false
 	
 func fireAtPlayer(angle: Vector2, rotation: float):
 	var laser = projectile.instantiate().duplicate()

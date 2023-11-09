@@ -46,6 +46,8 @@ func _process(delta):
 	for body in grav_area.get_overlapping_bodies():
 		if body is Player:
 			body.set_influence(grav_area.gravity*5, self.global_position, grav_center_shape.shape.radius)
+		elif body is projectile:
+			body.set_influence(grav_area.gravity*.1, self.global_position, grav_center_shape.shape.radius)
 	pass
 
 func remove_gravity():
