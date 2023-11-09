@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3fxdij8gxr2p"]
+[gd_scene load_steps=10 format=3 uid="uid://d3fxdij8gxr2p"]
 
 [ext_resource type="Script" path="res://Scripts/BasicPlayer.gd" id="1_jtj3m"]
 [ext_resource type="SpriteFrames" uid="uid://tqtkw4xfceq6" path="res://Sprites/Animations/PlayerController.tres" id="2_7dg1n"]
@@ -11,6 +11,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ulmm2"]
 radius = 7.0
 height = 28.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ina37"]
+polygon = PackedVector2Array(-7, 0, -7, -14, 8, -14, 8, 14, -7, 14)
 
 [node name="Player" type="CharacterBody2D"]
 floor_stop_on_slope = false
@@ -72,3 +75,6 @@ fall_state = NodePath("../fall")
 jump_state = NodePath("../jump")
 move_state = NodePath("../move")
 animation_name = "idle"
+
+[node name="ParticleOccluderMask" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_ina37")

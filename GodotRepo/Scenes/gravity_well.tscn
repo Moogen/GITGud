@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dptl7rt8a65hx"]
+[gd_scene load_steps=8 format=3 uid="uid://dptl7rt8a65hx"]
 
 [ext_resource type="Script" path="res://Scripts/GravityWell.gd" id="1_k6cux"]
 [ext_resource type="Texture2D" uid="uid://raej4vyjje2t" path="res://Sprites/dark_hole.png" id="2_hmhry"]
 [ext_resource type="Script" path="res://Scripts/BlackholeSprite.gd" id="3_jgrx1"]
+[ext_resource type="PackedScene" uid="uid://cmf3gp63pr2et" path="res://Scenes/mass_particle_emitter.tscn" id="4_qeu1r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ssj3i"]
 resource_local_to_scene = true
@@ -11,7 +12,7 @@ radius = 83.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_xne5h"]
 resource_local_to_scene = true
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rqj1n"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y4apb"]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 10.0
@@ -23,6 +24,7 @@ orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 scale_max = 2.0
 color = Color(0.431373, 0.317647, 0.505882, 1)
+collision_mode = 2
 
 [node name="GravityWell" type="Node2D"]
 script = ExtResource("1_k6cux")
@@ -59,11 +61,5 @@ angular_damp = 0.01
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Center"]
 shape = SubResource("CircleShape2D_xne5h")
 
-[node name="MassParticles" type="GPUParticles2D" parent="."]
-emitting = false
-amount = 100
-process_material = SubResource("ParticleProcessMaterial_rqj1n")
-lifetime = 2.0
-one_shot = true
-explosiveness = 0.6
-visibility_rect = Rect2(-100, 100, 1000, 1000)
+[node name="MassParticles" parent="." instance=ExtResource("4_qeu1r")]
+process_material = SubResource("ParticleProcessMaterial_y4apb")

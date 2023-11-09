@@ -40,7 +40,7 @@ func _process(delta):
         
         # Click position is adjusted by player movement so we must place our gravity well accordingly
         spawning_well.position = get_global_mouse_position() 
-        print("Time elapsed: ", click_time)
+        # print("Time elapsed: ", click_time)
         
         if(click_time >= 10): #every 0.1 seconds add to the size 
             timer = Time.get_ticks_msec()
