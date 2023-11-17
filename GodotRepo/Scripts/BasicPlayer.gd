@@ -34,5 +34,5 @@ func _on_body_entered(body : PhysicsBody2D) -> void:
 	pass
 
 func take_damage():
-	self.get_node("HealthBar").change_health(-10)
+	get_node("../CanvasLayer/HealthBar").change_health(-10)
 	pass
