@@ -32,3 +32,7 @@ func _on_body_entered(body : PhysicsBody2D) -> void:
 		print("do some damage to the object")       
 		body.damage_object(side_attack_damage)
 	pass
+
+func take_damage():
+	self.get_node("HealthBar").change_health(-10)
+	pass

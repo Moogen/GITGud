@@ -1,10 +1,18 @@
 class_name projectile extends CharacterBody2D 
 
+@onready var player = get_node("/root/Main/Player")
+
 var projectile_direction = Vector2(0,0)
 var gravity_influence = Vector2(0,0)
+signal damage_dealt
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if(player != null):
+		damage_dealt.connect(player.take_damage)
+	else:
+		print("player not found")	
+	
 	pass # Replace with function body.
 
 
@@ -29,6 +37,8 @@ func _physics_process(delta):
 	if(collision):
 		var collider = collision.get_collider()
 		if(collider) is Player:
+			damage_dealt.emit()
+			damage_dealt.disconnect(player.take_damage)
 			await get_tree().create_timer(.1).timeout
 			queue_free()
 		else:
